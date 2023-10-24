@@ -3,6 +3,8 @@ Object Oriented Java Programming Final Project
 Harapan Bangsa Institute of Technology
 2023 - 2024 (3rd Semester)
 
+Project : Product Storage System
+
 Group Member
 1122005 - Rafael Joy Hadi 
 1122007 - Waluya Juang Husada
