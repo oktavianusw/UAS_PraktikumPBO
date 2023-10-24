@@ -5,7 +5,8 @@ Harapan Bangsa Institute of Technology
 
 Project : Product Storage System
 
-Group Member
+Group Member : 
+
 1122005 - Rafael Joy Hadi 
 
 1122007 - Waluya Juang Husada
