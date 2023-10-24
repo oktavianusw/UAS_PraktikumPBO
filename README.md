@@ -7,6 +7,7 @@ Project : Product Storage System
 
 Group Member
 1122005 - Rafael Joy Hadi 
+
 1122007 - Waluya Juang Husada
 1122013 - Peter Kurniawan Oktavianus
 1122033 - Gregory Jason Andrew Matthew
