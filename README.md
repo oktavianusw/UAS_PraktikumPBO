@@ -1,5 +1,3 @@
-
-=======
 # product-storage-system
 Object Oriented Java Programming Final Project
 Harapan Bangsa Institute of Technology
