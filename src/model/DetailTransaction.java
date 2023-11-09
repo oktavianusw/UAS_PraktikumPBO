@@ -1,43 +1,33 @@
 package model;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 import java.util.Date;
 
-/**
- *
- * @author gregopublic class DetailTransaction extends Transaction{
-
- */
-
-public class DetailTransaction extends Transaction{    
-    private String transactionAmount;
-    private String productPrice;
+public class DetailTransaction extends Transaction {
+    private double transactionAmount;
+    private double productPrice;
     private int quantity;
-    
+
     public DetailTransaction(String transactionType, Date transactionDate, int prodID, int transactionID,
-        String transactionAmount, String productPrice, int quantity) {
+            double transactionAmount, double productPrice, int quantity) {
         super(transactionType, transactionDate, prodID, transactionID);
         this.transactionAmount = transactionAmount;
         this.productPrice = productPrice;
         this.quantity = quantity;
     }
 
-    public String getTransactionAmount() {
+    public double getTransactionAmount() {
         return transactionAmount;
     }
 
-    public void setTransactionAmount(String transactionAmount) {
+    public void setTransactionAmount(double transactionAmount) {
         this.transactionAmount = transactionAmount;
     }
 
-    public String getProductPrice() {
+    public double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
 
@@ -48,5 +38,5 @@ public class DetailTransaction extends Transaction{
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
+
 }

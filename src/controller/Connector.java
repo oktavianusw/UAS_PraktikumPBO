@@ -1,3 +1,5 @@
+package controller;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -14,19 +16,5 @@ public class Connector {
             System.err.println("Error connecting to the database: " + e.getMessage());
         }
         return connection;
-    }
-
-    public static void main(String[] args) {
-        Connector databaseConnector = new Connector();
-        Connection connection = databaseConnector.getConnection();
-
-        try {
-            if (connection != null) {
-                connection.close();
-                System.out.println("Connection closed.");
-            }
-        } catch (SQLException e) {
-            System.err.println("Error closing the database connection: " + e.getMessage());
-        }
     }
 }

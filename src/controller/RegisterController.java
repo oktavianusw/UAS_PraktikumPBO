@@ -1,19 +1,21 @@
+package controller;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class SignUp {
+public class RegisterController {
     public void signUp(String username, String password) {
         Connector databaseConnector = new Connector();
         Connection connection = databaseConnector.getConnection();
 
         if (connection != null) {
             try {
-                String query = "INSERT INTO users (username, password, user_role) VALUES (?, ?, ?)";
+                String query = "INSERT INTO users (username, password, roleType) VALUES (?, ?, ?)";
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1, username);
                 preparedStatement.setString(2, password);
-                preparedStatement.setString(3, "customer");
+                preparedStatement.setString(3, "Customer");
 
                 int rowsAffected = preparedStatement.executeUpdate();
 
@@ -22,7 +24,6 @@ public class SignUp {
                 } else {
                     System.out.println("Customer registration failed.");
                 }
-
                 preparedStatement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -38,10 +39,5 @@ public class SignUp {
         } else {
             System.err.println("Unable to establish a database connection.");
         }
-    }
-
-    public static void main(String[] args) {
-        SignUp signUp = new SignUp();
-        signUp.signUp("newuser", "newpassword");
     }
 }

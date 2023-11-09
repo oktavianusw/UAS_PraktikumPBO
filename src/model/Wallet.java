@@ -1,22 +1,13 @@
 package model;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author grego
- */
 public class Wallet {
     private int userID;
-    private int transcationCount;
+    private int transactionCount;
     private double walletAmount;
 
-    public Wallet(int userID, int transcationCount, double walletAmount) {
+    public Wallet(int userID, int transactionCount, double walletAmount) {
         this.userID = userID;
-        this.transcationCount = transcationCount;
+        this.transactionCount = transactionCount;
         this.walletAmount = walletAmount;
     }
 
@@ -28,12 +19,12 @@ public class Wallet {
         this.userID = userID;
     }
 
-    public int getTranscationCount() {
-        return transcationCount;
+    public int gettransactionCount() {
+        return transactionCount;
     }
 
-    public void setTranscationCount(int transcationCount) {
-        this.transcationCount = transcationCount;
+    public void settransactionCount(int transactionCount) {
+        this.transactionCount = transactionCount;
     }
 
     public double getWalletAmount() {
@@ -43,6 +34,5 @@ public class Wallet {
     public void setWalletAmount(double walletAmount) {
         this.walletAmount = walletAmount;
     }
-    
-    
+
 }
