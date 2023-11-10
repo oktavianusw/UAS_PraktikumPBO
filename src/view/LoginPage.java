@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.*;
 import controller.*;
+import view.customer.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +12,7 @@ public class LoginPage extends JFrame {
     private JPasswordField passwordField;
     private JButton loginButton;
 
+    // * FRAME
     public LoginPage() {
         setTitle("Login");
         setSize(320, 200);
@@ -24,6 +27,7 @@ public class LoginPage extends JFrame {
         setVisible(true);
     }
 
+    // * COMPONENTS
     private void placeComponents(JPanel panel) {
         panel.setLayout(null);
 
@@ -51,6 +55,7 @@ public class LoginPage extends JFrame {
         signUpButton.setBounds(60, 110, 80, 25);
         panel.add(signUpButton);
 
+        // * LISTENERS
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -76,5 +81,7 @@ public class LoginPage extends JFrame {
                 LoginPage.this.setVisible(false);
             }
         });
+
+        
     }
 }

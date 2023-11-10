@@ -1,5 +1,7 @@
 package view;
 
+import java.sql.SQLException;
+
 import javax.swing.*;
 import controller.RegisterController;
 
@@ -8,6 +10,7 @@ public class RegisterPage extends JFrame {
     private JPasswordField passwordField;
     private JPasswordField confirmPasswordField;
 
+    // * FRAME
     public RegisterPage() {
         setTitle("Register");
         setSize(360, 250);
@@ -22,6 +25,7 @@ public class RegisterPage extends JFrame {
         setVisible(true);
     }
 
+    // * COMPONENTS
     private void placeComponents(JPanel panel) {
         panel.setLayout(null);
 
@@ -57,6 +61,7 @@ public class RegisterPage extends JFrame {
         cancelButton.setBounds(80, 140, 80, 25);
         panel.add(cancelButton);
 
+        // * LISTENERS
         registerButton.addActionListener(e -> {
             boolean success = false;
             String username = usernameField.getText();
@@ -73,14 +78,14 @@ public class RegisterPage extends JFrame {
                         "Username can only contain letters, numbers, and underscores.", "Error",
                         JOptionPane.ERROR_MESSAGE);
                 return;
-            } else if (username.length() < 5 || username.length() > 15) {
+            } else if (username.length() < 3 || username.length() > 15) {
                 JOptionPane.showMessageDialog(RegisterPage.this,
-                        "Username must be between 5 and 15 characters.", "Error",
+                        "Username must be between 3 and 15 characters.", "Error",
                         JOptionPane.ERROR_MESSAGE);
                 return;
-            } else if (password.length() < 8 || password.length() > 15) {
+            } else if (password.length() < 3 || password.length() > 15) {
                 JOptionPane.showMessageDialog(RegisterPage.this,
-                        "Password must be between 5 and 15 characters.", "Error",
+                        "Password must be between 3 and 15 characters.", "Error",
                         JOptionPane.ERROR_MESSAGE);
                 return;
             } else if (!password.equals(confirmPassword)) {
@@ -94,10 +99,16 @@ public class RegisterPage extends JFrame {
             RegisterController registerController = new RegisterController();
 
             if (success) {
-                registerController.signUp(username, password);
-                JOptionPane.showMessageDialog(RegisterPage.this, "Registration successful! Welcome " + username + "!",
-                        "Success",
-                        JOptionPane.INFORMATION_MESSAGE);
+                try {
+                    registerController.signUp(username, password);
+                    JOptionPane.showMessageDialog(RegisterPage.this,
+                            "Registration successful! Welcome " + username + "!",
+                            "Success",
+                            JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(RegisterPage.this, "Registration failed: " + ex.getMessage(), "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
             } else {
                 JOptionPane.showMessageDialog(RegisterPage.this, "Registration failed.", "Error",
                         JOptionPane.ERROR_MESSAGE);

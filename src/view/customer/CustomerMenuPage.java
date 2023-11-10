@@ -1,6 +1,8 @@
-package view;
+package view.customer;
 
 import javax.swing.*;
+
+import view.LoginPage;
 
 public class CustomerMenuPage extends JFrame {
     public CustomerMenuPage(String username) {
@@ -54,14 +56,18 @@ public class CustomerMenuPage extends JFrame {
         panel.add(logoutButton);
 
         logoutButton.addActionListener(e -> {
-            int response = JOptionPane.showConfirmDialog(CustomerMenuPage.this,
+            Object[] options = { "No", "Yes" };
+            int response = JOptionPane.showOptionDialog(CustomerMenuPage.this,
                     "Are you sure you want to logout?", "Logout",
-                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+                    null, options, options[1]);
 
-            if (response == JOptionPane.YES_OPTION) {
+            if (response == 1) {
                 new LoginPage();
                 dispose();
             }
         });
+
+        editProfileButton.addActionListener(e -> new CustomerEditProfilePage(username, this));
     }
 }
