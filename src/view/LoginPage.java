@@ -2,7 +2,7 @@ package view;
 
 import javax.swing.*;
 import controller.*;
-import view.customer.*;
+import view.customer.CustomerMenuPage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -81,7 +81,5 @@ public class LoginPage extends JFrame {
                 LoginPage.this.setVisible(false);
             }
         });
-
-        
     }
 }

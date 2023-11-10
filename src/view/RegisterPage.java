@@ -105,6 +105,8 @@ public class RegisterPage extends JFrame {
                             "Registration successful! Welcome " + username + "!",
                             "Success",
                             JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                    new LoginPage().setVisible(true);
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(RegisterPage.this, "Registration failed: " + ex.getMessage(), "Error",
                             JOptionPane.ERROR_MESSAGE);

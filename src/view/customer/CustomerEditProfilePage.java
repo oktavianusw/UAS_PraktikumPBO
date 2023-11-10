@@ -8,10 +8,8 @@ public class CustomerEditProfilePage extends JFrame {
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JButton saveButton;
-    private JFrame mainMenu;
 
     public CustomerEditProfilePage(String currentUsername, JFrame mainMenu) {
-        this.mainMenu = mainMenu;
         mainMenu.dispose();
 
         setTitle("Edit Profile");
