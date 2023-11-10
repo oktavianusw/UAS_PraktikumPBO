@@ -62,7 +62,7 @@ public class RegisterPage extends JFrame {
             String username = usernameField.getText();
             String password = new String(passwordField.getPassword());
             String confirmPassword = new String(confirmPasswordField.getPassword());
-            
+
             if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 JOptionPane.showMessageDialog(RegisterPage.this,
                         "Username, password and confirm password cannot be empty.", "Error",

@@ -3,22 +3,27 @@ package view;
 import javax.swing.*;
 
 public class CustomerMenuPage extends JFrame {
-    public CustomerMenuPage() {
+    public CustomerMenuPage(String username) {
         setTitle("Main Menu");
-        setSize(1080, 720);
+        setSize(365, 480);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel();
         add(panel);
-        placeComponents(panel);
+        placeComponents(panel, username);
 
         setLocationRelativeTo(null);
 
         setVisible(true);
     }
 
-    private void placeComponents(JPanel panel) {
+    private void placeComponents(JPanel panel, String username) {
         panel.setLayout(null);
+
+        JLabel welcomeLabel = new JLabel("Welcome, " + username + "!");
+        welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        welcomeLabel.setBounds(0, 10, getWidth(), 35);
+        panel.add(welcomeLabel);
 
         JButton viewProductsButton = new JButton("Catalogue / View Products");
         viewProductsButton.setBounds(50, 50, 250, 35);

@@ -60,8 +60,8 @@ public class LoginPage extends JFrame {
                 if (LoginController.authenticateUser(username, password)) {
                     JOptionPane.showMessageDialog(LoginPage.this, "Welcome, " + username + "!", "Success",
                             JOptionPane.INFORMATION_MESSAGE);
-                    new CustomerMenuPage(); // Navigate to the CustomerMenuPage
-                    dispose(); // Close the LoginPage
+                    new CustomerMenuPage(username);
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(LoginPage.this, "Invalid username or password.", "Error",
                             JOptionPane.ERROR_MESSAGE);
@@ -73,6 +73,7 @@ public class LoginPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new RegisterPage();
+                LoginPage.this.setVisible(false);
             }
         });
     }
