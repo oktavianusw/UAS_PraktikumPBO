@@ -17,7 +17,7 @@ import java.util.Vector;
 public class CustomerViewCartPage extends JFrame {
     private JTable productTable;
     private String username;
-    private JLabel messageLabel;  // Added JLabel for displaying messages
+    private JLabel messageLabel; // Added JLabel for displaying messages
 
     public CustomerViewCartPage(String username, JFrame menu) {
         menu.dispose();
@@ -82,7 +82,8 @@ public class CustomerViewCartPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Call the checkout method from the controller
-                CustomerCheckOutController checkoutController = new CustomerCheckOutController(CustomerViewCartPage.this);
+                CustomerCheckOutController checkoutController = new CustomerCheckOutController(
+                        CustomerViewCartPage.this);
                 if (checkoutController.checkout(username)) {
                     showMessage("Checkout successful!");
                 } else {
@@ -90,11 +91,21 @@ public class CustomerViewCartPage extends JFrame {
                 }
             }
         });
-        panel.add(checkoutButton, BorderLayout.SOUTH);
+        panel.add(checkoutButton, BorderLayout.LINE_START);
+
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CustomerMenuPage(username);
+                dispose();
+            }
+        });
+        panel.add(backButton, BorderLayout.PAGE_END);
 
         // Initialize and add the message label
         messageLabel = new JLabel();
-        panel.add(messageLabel, BorderLayout.NORTH);
+        panel.add(messageLabel, BorderLayout.EAST);
     }
 
     // Method to update the message label

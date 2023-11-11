@@ -79,6 +79,16 @@ public class CustomerViewProductPage extends JFrame {
 
         JScrollPane scrollPane = new JScrollPane(productTable);
         panel.add(scrollPane, BorderLayout.CENTER);
+
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CustomerMenuPage(username);
+                dispose();
+            }
+        });
+        panel.add(backButton, BorderLayout.PAGE_END);
     }
 
     private class ButtonRenderer extends JButton implements TableCellRenderer {
