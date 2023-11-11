@@ -94,6 +94,10 @@ public class CustomerMenuPage extends JFrame {
             new CustomerViewProductPage(username,this);
         });
 
+        viewCartButton.addActionListener(e -> {
+            new CustomerViewCartPage(username,this);
+        });
+
         editProfileButton.addActionListener(e -> new CustomerEditProfilePage(username, this));
     }
 }
