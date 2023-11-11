@@ -1,6 +1,9 @@
 package view.customer;
 
 import javax.swing.*;
+
+import controller.customer.CustomerCheckOutController;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -78,8 +81,13 @@ public class CustomerViewCartPage extends JFrame {
         checkoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Add the checkout logic here
-                showMessage("Checkout button clicked!");
+                // Call the checkout method from the controller
+                CustomerCheckOutController checkoutController = new CustomerCheckOutController(CustomerViewCartPage.this);
+                if (checkoutController.checkout(username)) {
+                    showMessage("Checkout successful!");
+                } else {
+                    showMessage("Checkout failed. Please try again.");
+                }
             }
         });
         panel.add(checkoutButton, BorderLayout.SOUTH);
