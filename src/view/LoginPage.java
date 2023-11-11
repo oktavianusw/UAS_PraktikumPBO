@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 import controller.*;
 import view.customer.CustomerMenuPage;
+import view.owner.OwnerMenuPage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -62,10 +63,15 @@ public class LoginPage extends JFrame {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
 
-                if (LoginController.authenticateUser(username, password)) {
+                String userType = LoginController.authenticateUser(username, password);
+                if (userType != null) {
                     JOptionPane.showMessageDialog(LoginPage.this, "Welcome, " + username + "!", "Success",
                             JOptionPane.INFORMATION_MESSAGE);
-                    new CustomerMenuPage(username);
+                    if ("Owner".equals(userType)) {
+                        new OwnerMenuPage(username);
+                    } else {
+                        new CustomerMenuPage(username);
+                    }
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(LoginPage.this, "Invalid username or password.", "Error",

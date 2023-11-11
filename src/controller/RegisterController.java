@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class RegisterController {
     public void signUp(String username, String password) throws SQLException {
-        Connector databaseConnector = new Connector();
+        Connector databaseConnector = Connector.getInstance();
         Connection connection = databaseConnector.getConnection();
 
         String query = "INSERT INTO user (userName, userPassword, roleType) VALUES (?, ?, ?)";

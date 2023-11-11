@@ -1,4 +1,5 @@
 package controller.customer;
+
 import controller.Connector;
 
 import java.sql.Connection;
@@ -6,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class CustomerEditProfileController {
-    Connector databaseConnector = new Connector();
+    Connector databaseConnector = Connector.getInstance();
     Connection connection = databaseConnector.getConnection();
 
     public boolean updateProfile(String currentUsername, String newUsername, String newPassword) {

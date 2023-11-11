@@ -6,13 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 
-
-
 public class CustomerTopUpController {
     public void topUpWallet(String username, double amount) {
         System.out.println("Top Up Wallet method called with username: " + username + " and amount: " + amount);
-        Connector connector = new Connector();
-        try (Connection conn = connector.getConnection()) {
+        Connector databaseConnector = Connector.getInstance();
+        try (Connection conn = databaseConnector.getConnection()) {
             String sql = "SELECT userID FROM user WHERE userName = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, username);

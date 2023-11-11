@@ -6,6 +6,23 @@ import java.sql.SQLException;
 
 public class Connector {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/product_warehouse_management?user=root&password=";
+    private static Connector instance;
+
+    // * SINGLETON PATTERN FOR GETTING THE DATABASE CONNECTION
+    private Connector() {
+
+    }
+
+    public static Connector getInstance() {
+        if (instance == null) {
+            synchronized (Connector.class) {
+                if (instance == null) {
+                    instance = new Connector();
+                }
+            }
+        }
+        return instance;
+    }
 
     public Connection getConnection() {
         Connection connection = null;

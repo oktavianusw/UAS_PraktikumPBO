@@ -10,7 +10,7 @@ public class CustomerMenuController {
     private Connector connector;
 
     public CustomerMenuController() {
-        this.connector = new Connector();
+        this.connector = Connector.getInstance();
     }
 
     public double getBalance(String username) {
