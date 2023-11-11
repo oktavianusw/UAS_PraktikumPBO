@@ -3,9 +3,6 @@ package view.owner;
 import javax.swing.*;
 
 import view.LoginPage;
-import view.customer.CustomerEditProfilePage;
-import view.customer.CustomerMenuPage;
-import view.customer.CustomerTopUpPage;
 
 public class OwnerMenuPage extends JFrame {
     private String username;
