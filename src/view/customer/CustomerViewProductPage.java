@@ -14,7 +14,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 
-import controller.customer.CustomerAddToCartController;
 
 public class CustomerViewProductPage extends JFrame {
     private JTable productTable;

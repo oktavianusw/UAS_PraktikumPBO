@@ -1,15 +1,22 @@
 package controller.customer;
 
 import controller.Connector;
+import view.customer.CustomerViewCartPage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CustomerCheckoutController {
+public class CustomerCheckOutController {
     Connector databaseConnector = Connector.getInstance();
     Connection connection = databaseConnector.getConnection();
+
+    CustomerViewCartPage viewCartPage;
+
+    public CustomerCheckOutController(CustomerViewCartPage viewCartPage) {
+        this.viewCartPage = viewCartPage;
+    }
 
     public boolean checkout(String username) {
         String fetchUserID = "SELECT userID FROM user WHERE userName = ?";
@@ -49,19 +56,21 @@ public class CustomerCheckoutController {
                         deleteCartItemsStatement.executeUpdate();
                     } else {
                         // Handle the case where the order insertion fails
-                        System.out.println("Failed to insert order for productID: " + productID);
+                        viewCartPage.showMessage("Failed to insert order for productID: " + productID);
                         return false;
                     }
                 }
 
+                viewCartPage.showMessage("Checkout successful!");
                 return true; // Checkout success
             } else {
                 // Handle the case where the username does not exist
-                System.out.println("User not found: " + username);
+                viewCartPage.showMessage("User " + username + " is not found.");
                 return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            viewCartPage.showMessage("An error occurred during checkout.");
             return false;
         }
     }

@@ -14,6 +14,7 @@ import java.util.Vector;
 public class CustomerViewCartPage extends JFrame {
     private JTable productTable;
     private String username;
+    private JLabel messageLabel;  // Added JLabel for displaying messages
 
     public CustomerViewCartPage(String username, JFrame menu) {
         menu.dispose();
@@ -65,6 +66,7 @@ public class CustomerViewCartPage extends JFrame {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            showMessage("Error fetching data from the database.");
         }
 
         productTable = new JTable(data, columnNames);
@@ -76,9 +78,19 @@ public class CustomerViewCartPage extends JFrame {
         checkoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                // Add the checkout logic here
+                showMessage("Checkout button clicked!");
             }
         });
         panel.add(checkoutButton, BorderLayout.SOUTH);
+
+        // Initialize and add the message label
+        messageLabel = new JLabel();
+        panel.add(messageLabel, BorderLayout.NORTH);
+    }
+
+    // Method to update the message label
+    public void showMessage(String message) {
+        messageLabel.setText(message);
     }
 }

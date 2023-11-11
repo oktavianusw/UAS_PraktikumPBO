@@ -1,7 +1,6 @@
 package view.customer;
 
 import view.LoginPage;
-import view.customer.CustomerViewProductPage;
 import javax.swing.*;
 import java.text.DecimalFormat;
 import controller.customer.CustomerMenuController;
