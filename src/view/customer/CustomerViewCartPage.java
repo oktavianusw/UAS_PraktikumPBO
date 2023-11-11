@@ -1,0 +1,84 @@
+package view.customer;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
+
+public class CustomerViewCartPage extends JFrame {
+    private JTable productTable;
+    private String username;
+
+    public CustomerViewCartPage(String username, JFrame menu) {
+        menu.dispose();
+        this.username = username;
+        setTitle("Product List");
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        add(panel);
+        placeComponents(panel);
+
+        setLocationRelativeTo(null);
+
+        setVisible(true);
+    }
+
+    private void placeComponents(JPanel panel) {
+        panel.setLayout(new BorderLayout());
+
+        // Fetch data from the database
+        Vector<String> columnNames = new Vector<>();
+        Vector<Vector<Object>> data = new Vector<>();
+
+        try {
+            Connection connection = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/product_warehouse_management", "root", "");
+            String query = "SELECT product.productname as Produk, SUM(cart.quantity) as Quantity FROM cart " +
+                    "JOIN user ON cart.userid = user.userid " +
+                    "JOIN product ON cart.productid = product.productid " +
+                    "WHERE user.username = ? " +
+                    "GROUP BY product.productname";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, this.username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
+                columnNames.add(resultSet.getMetaData().getColumnName(i));
+            }
+
+            while (resultSet.next()) {
+                Vector<Object> row = new Vector<>();
+                for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
+                    row.add(resultSet.getObject(i));
+                }
+                data.add(row);
+            }
+
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        productTable = new JTable(data, columnNames);
+
+        JScrollPane scrollPane = new JScrollPane(productTable);
+        panel.add(scrollPane, BorderLayout.CENTER);
+
+        JButton checkoutButton = new JButton("Checkout");
+        checkoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+        panel.add(checkoutButton, BorderLayout.SOUTH);
+    }
+}

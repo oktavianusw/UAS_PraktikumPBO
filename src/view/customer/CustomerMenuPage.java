@@ -1,6 +1,7 @@
 package view.customer;
 
 import view.LoginPage;
+import view.customer.CustomerViewProductPage;
 import javax.swing.*;
 import java.text.DecimalFormat;
 import controller.customer.CustomerMenuController;
@@ -87,6 +88,14 @@ public class CustomerMenuPage extends JFrame {
                 new LoginPage();
                 dispose();
             }
+        });
+
+        viewProductsButton.addActionListener(e -> {
+            new CustomerViewProductPage(username,this);
+        });
+
+        viewCartButton.addActionListener(e -> {
+            new CustomerViewCartPage(username,this);
         });
 
         editProfileButton.addActionListener(e -> new CustomerEditProfilePage(username, this));
