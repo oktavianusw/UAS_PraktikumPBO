@@ -5,11 +5,7 @@ import javax.swing.*;
 import view.LoginPage;
 
 public class OwnerMenuPage extends JFrame {
-    private String username;
-
     public OwnerMenuPage(String username) {
-        this.username = username;
-
         setTitle("Main Menu");
         setSize(365, 260);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
