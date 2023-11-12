@@ -14,8 +14,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 
-import controller.customer.CustomerAddToCartController;
-
 public class CustomerViewProductPage extends JFrame {
     private JTable productTable;
     private String username;
@@ -94,7 +92,6 @@ public class CustomerViewProductPage extends JFrame {
 
     private class ButtonEditor extends DefaultCellEditor {
         private JButton button;
-        private JFrame parentFrame;
 
         public ButtonEditor(JTextField textField, JFrame parentFrame) {
             super(textField);
@@ -110,7 +107,6 @@ public class CustomerViewProductPage extends JFrame {
                     }
                 }
             });
-            this.parentFrame = parentFrame;
         }
 
         @Override
