@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2591b3a5-2c25-4832-8505-367f3b1dea23" name="Changes" comment="added Back Button to CustomerAddToCartPage, CustomerViewCartPage, and&#10;CustomerViewProductPage. fixed BorderLayout for some JLabels. Has an error in check out, still failed when button clicked." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/Peter" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Peter" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;peterkrn&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a6bc9880-eab6-403f-95f2-0bff654d44b8" />
+        <option name="url" value="https://github.com/rafaeljoyhadi/product-storage-system.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2XcTsjzeCsNp5teoxmNoUpgs0kF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/peter/OneDrive - Institut Teknologi Harapan Bangsa/local (vsc)/third sem/tubes-pbo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2591b3a5-2c25-4832-8505-367f3b1dea23" name="Changes" comment="" />
+      <created>1698927576278</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698927576278</updated>
+      <workItem from="1698927577421" duration="146000" />
+      <workItem from="1699667983301" duration="2800000" />
+      <workItem from="1699684451225" duration="4948000" />
+      <workItem from="1699721385987" duration="7783000" />
+    </task>
+    <task id="LOCAL-00001" summary="Created CustomerViewCart controller, is still empty.">
+      <option name="closed" value="true" />
+      <created>1699684666514</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699684666514</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updated CustomerViewCartController, but the warehouseID hasn't been resolved yet because the warehouseID hasn't existed in all models.">
+      <option name="closed" value="true" />
+      <created>1699696399600</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699696399600</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated CustomerViewCartPage, but the problems remains the same as the controller, warehouseID hasn't yet existed. there are some TODOs that hasn't been created yet as well.">
+      <option name="closed" value="true" />
+      <created>1699696489268</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699696489268</updated>
+    </task>
+    <task id="LOCAL-00004" summary="renamed from CustomerViewCartController to CustomerCheckOutController because this controller's purpose now is to check out only.">
+      <option name="closed" value="true" />
+      <created>1699723196076</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699723196076</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ViewCartPage would be replaced by the revised version in the main branch.">
+      <option name="closed" value="true" />
+      <created>1699725105373</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699725105373</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ViewCart would be replaced by the revised version in the main branch.">
+      <option name="closed" value="true" />
+      <created>1699725148590</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699725148590</updated>
+    </task>
+    <task id="LOCAL-00007" summary="committed and pushed no changes, just to sync the files and solve git pull failed.">
+      <option name="closed" value="true" />
+      <created>1699725262191</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699725262191</updated>
+    </task>
+    <task id="LOCAL-00008" summary="removed all print out from CustomerCheckOutController and replaced it with showMessages method that is passed to CustomerViewCartPage, so controller and view correctly serves its own purposes.">
+      <option name="closed" value="true" />
+      <created>1699726256466</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699726256466</updated>
+    </task>
+    <task id="LOCAL-00009" summary="connected CustomerCheckOutController to the JButton checkoutButton in CustomerViewCartPage.">
+      <option name="closed" value="true" />
+      <created>1699726690621</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699726690621</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added Back Button to CustomerAddToCartPage, CustomerViewCartPage, and&#10;CustomerViewProductPage. fixed BorderLayout for some JLabels. Has an error in check out, still failed when button clicked.">
+      <option name="closed" value="true" />
+      <created>1699729462631</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699729462631</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Peter" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created CustomerViewCart controller, is still empty." />
+    <MESSAGE value="Updated CustomerViewCartController, but the warehouseID hasn't been resolved yet because the warehouseID hasn't existed in all models." />
+    <MESSAGE value="Updated CustomerViewCartPage, but the problems remains the same as the controller, warehouseID hasn't yet existed." />
+    <MESSAGE value="Updated CustomerViewCartPage, but the problems remains the same as the controller, warehouseID hasn't yet existed. there are some TODOs that hasn't been created yet as well." />
+    <MESSAGE value="renamed from CustomerViewCartController to CustomerCheckOutController because this controller's purpose now is to check out only." />
+    <MESSAGE value="ViewCartPage would be replaced by the revised version in the main branch." />
+    <MESSAGE value="ViewCart would be replaced by the revised version in the main branch." />
+    <MESSAGE value="committed and pushed no changes, just to sync the files and solve git pull failed." />
+    <MESSAGE value="removed all print out from CustomerCheckOutController and replaced it with showMessages method that is passed to CustomerViewCartPage, so controller and view correctly serves its own purposes." />
+    <MESSAGE value="connected CustomerCheckOutController to the JButton checkoutButton in CustomerViewCartPage." />
+    <MESSAGE value="added Back Button to CustomerAddToCartPage, CustomerViewCartPage, and&#10;CustomerViewProductPage. fixed BorderLayout for some JLabels. Has an error in check out, still failed when button clicked." />
+    <option name="LAST_COMMIT_MESSAGE" value="added Back Button to CustomerAddToCartPage, CustomerViewCartPage, and&#10;CustomerViewProductPage. fixed BorderLayout for some JLabels. Has an error in check out, still failed when button clicked." />
+  </component>
+</project>
