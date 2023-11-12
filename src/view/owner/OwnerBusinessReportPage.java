@@ -2,6 +2,7 @@ package view.owner;
 
 import controller.owner.OwnerBusinessReportController;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class OwnerBusinessReportPage extends JFrame {
     private OwnerBusinessReportController controller;
@@ -10,28 +11,19 @@ public class OwnerBusinessReportPage extends JFrame {
         this.controller = new OwnerBusinessReportController();
 
         setTitle("Business Report");
-        setSize(365, 200);
+        setSize(700, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new JPanel();
-        add(panel);
-        placeComponents(panel);
+        String[] columnNames = { "Warehouse Name", "Product Name", "Product Quantity Left", "Products Sold", "Money Earned" };
+        Object[][] data = controller.getBusinessReportData();
+
+        JTable table = new JTable(new DefaultTableModel(data, columnNames));
+        JScrollPane scrollPane = new JScrollPane(table);
+        table.setFillsViewportHeight(true);
+
+        add(scrollPane);
 
         setLocationRelativeTo(null);
         setVisible(true);
-    }
-
-    private void placeComponents(JPanel panel) {
-        panel.setLayout(null);
-
-        JLabel titleLabel = new JLabel("Business Report");
-        titleLabel.setHorizontalAlignment(JLabel.CENTER);
-        titleLabel.setBounds(-5, 10, getWidth(), 35);
-        panel.add(titleLabel);
-
-        JLabel totalMoneyLabel = new JLabel("Total Money Earned: " + controller.getTotalMoneyEarned());
-        totalMoneyLabel.setHorizontalAlignment(JLabel.CENTER);
-        totalMoneyLabel.setBounds(-5, 60, getWidth(), 35);
-        panel.add(totalMoneyLabel);
     }
 }

@@ -5,44 +5,52 @@ import javax.swing.*;
 import java.text.DecimalFormat;
 import controller.customer.CustomerMenuController;
 
+// This class represents the customer menu page
 public class CustomerMenuPage extends JFrame {
-    private String username;
+    private String username; // The username of the logged-in user
 
+    // Constructor takes the username as a parameter
     public CustomerMenuPage(String username) {
-        this.username = username;
+        this.username = username; // Set the username
 
-        setTitle("Main Menu");
-        setSize(365, 480);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Main Menu"); // Set the title of the window
+        setSize(365, 480); // Set the size of the window
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Set the default close operation
 
-        JPanel panel = new JPanel();
-        add(panel);
-        placeComponents(panel, username);
+        JPanel panel = new JPanel(); // Create a new panel
+        add(panel); // Add the panel to the frame
+        placeComponents(panel, username); // Place components on the panel
 
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null); // Center the window
 
-        setVisible(true);
+        setVisible(true); // Make the window visible
     }
 
+    // This method places components on the panel
     private void placeComponents(JPanel panel, String username) {
-        panel.setLayout(null);
+        panel.setLayout(null); // Set the layout manager to null (absolute positioning)
 
+        // Create and add a welcome label
         JLabel welcomeLabel = new JLabel("Welcome, " + username + "!");
         welcomeLabel.setHorizontalAlignment(JLabel.CENTER);
         welcomeLabel.setBounds(-5, 10, getWidth(), 35);
         panel.add(welcomeLabel);
 
+        // Create a controller and get the balance of the user
         CustomerMenuController controller = new CustomerMenuController();
         double balance = controller.getBalance(username);
 
+        // Format the balance to two decimal places
         DecimalFormat df = new DecimalFormat("#.##");
         String formattedBalance = df.format(balance);
 
+        // Create and add a label showing the current balance
         JLabel currentBalance = new JLabel("Your current balance is: " + formattedBalance);
         currentBalance.setHorizontalAlignment(JLabel.CENTER);
         currentBalance.setBounds(-5, 30, getWidth(), 35);
         panel.add(currentBalance);
 
+        // Create and add various buttons
         JButton viewProductsButton = new JButton("Catalogue / View Products");
         viewProductsButton.setBounds(50, 80, 250, 35);
         panel.add(viewProductsButton);
@@ -71,9 +79,22 @@ public class CustomerMenuPage extends JFrame {
         logoutButton.setBounds(50, 380, 250, 35);
         panel.add(logoutButton);
 
+        // Add action listeners to the buttons
         topUpButton.addActionListener(e -> {
             new CustomerTopUpPage(this.username, this);
             this.dispose();
+        });
+
+        viewProductsButton.addActionListener(e -> {
+            new CustomerViewProductPage(username, this);
+        });
+
+        viewCartButton.addActionListener(e -> {
+            new CustomerViewCartPage(username, this);
+        });
+
+        editProfileButton.addActionListener(e -> {
+            new CustomerEditProfilePage(username, this);
         });
 
         logoutButton.addActionListener(e -> {
@@ -89,13 +110,7 @@ public class CustomerMenuPage extends JFrame {
             }
         });
 
-        viewProductsButton.addActionListener(e -> {
-            new CustomerViewProductPage(username,this);
-        });
-
-        viewCartButton.addActionListener(e -> {
-            new CustomerViewCartPage(username,this);
-        });
+        purchaseHistoryButton.addActionListener(e -> new CustomerPurchaseHistoryPage(username, this));
 
         editProfileButton.addActionListener(e -> new CustomerEditProfilePage(username, this));
     }

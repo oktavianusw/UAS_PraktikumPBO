@@ -17,8 +17,8 @@ import java.util.Vector;
 public class CustomerViewCartPage extends JFrame {
     private JTable productTable;
     private String username;
-    private JLabel messageLabel; // Added JLabel for displaying messages
-
+    private JLabel messageLabel;
+    
     public CustomerViewCartPage(String username, JFrame menu) {
         menu.dispose();
         this.username = username;

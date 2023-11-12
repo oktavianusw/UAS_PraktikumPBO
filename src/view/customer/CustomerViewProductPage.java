@@ -14,7 +14,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 
-
 public class CustomerViewProductPage extends JFrame {
     private JTable productTable;
     private String username;
@@ -37,13 +36,12 @@ public class CustomerViewProductPage extends JFrame {
 
     private void placeComponents(JPanel panel) {
         panel.setLayout(new BorderLayout());
-
-        // Fetch data from the database
         Vector<String> columnNames = new Vector<>();
         Vector<Vector<Object>> data = new Vector<>();
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/product_warehouse_management", "root", "");
+            Connection connection = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/product_warehouse_management", "root", "");
             String query = "SELECT * FROM Product";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -53,7 +51,6 @@ public class CustomerViewProductPage extends JFrame {
                 columnNames.add(resultSet.getMetaData().getColumnName(i));
             }
 
-            // Get data
             while (resultSet.next()) {
                 Vector<Object> row = new Vector<>();
                 for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
@@ -69,7 +66,6 @@ public class CustomerViewProductPage extends JFrame {
 
         productTable = new JTable(data, columnNames);
 
-        // Add a button column to the table
         TableColumn buttonColumn = new TableColumn();
         buttonColumn.setHeaderValue("Add to Cart");
         buttonColumn.setCellRenderer(new ButtonRenderer());
@@ -97,7 +93,8 @@ public class CustomerViewProductPage extends JFrame {
         }
 
         @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+                int row, int column) {
             setText((value == null) ? "" : value.toString());
             return this;
         }
@@ -105,7 +102,6 @@ public class CustomerViewProductPage extends JFrame {
 
     private class ButtonEditor extends DefaultCellEditor {
         private JButton button;
-        private JFrame parentFrame;
 
         public ButtonEditor(JTextField textField, JFrame parentFrame) {
             super(textField);
@@ -115,17 +111,17 @@ public class CustomerViewProductPage extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     int row = productTable.getSelectedRow();
                     if (row != -1) {
-                        int productID = (int) productTable.getValueAt(row, 0); // Assuming productID is in the first column
+                        int productID = (int) productTable.getValueAt(row, 0);
                         new CustomerAddToCartPage(username, productID);
-                        dispose(); // Open the AddToCartPage
+                        dispose();
                     }
                 }
             });
-            this.parentFrame = parentFrame;
         }
 
         @Override
-        public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
+        public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+                int column) {
             return button;
         }
 
@@ -135,5 +131,4 @@ public class CustomerViewProductPage extends JFrame {
         }
     }
 
-    
 }

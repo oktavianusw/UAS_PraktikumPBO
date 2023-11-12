@@ -7,16 +7,19 @@ import java.sql.SQLException;
 import controller.Connector;
 
 public class CustomerMenuController {
-    private Connector connector;
+    private Connection connection;
 
     public CustomerMenuController() {
-        this.connector = Connector.getInstance();
+        // Get the database connection from the Connector singleton
+        this.connection = Connector.getInstance().getConnection();
+        if (this.connection == null) {
+            System.err.println("No database connection");
+        }
     }
 
     public double getBalance(String username) {
         String query = "SELECT walletAmount FROM wallet INNER JOIN user ON wallet.userID = user.userID WHERE user.userName = ?";
-        try (Connection conn = connector.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (PreparedStatement stmt = this.connection.prepareStatement(query)) {
             stmt.setString(1, username);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
