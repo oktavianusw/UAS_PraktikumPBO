@@ -109,12 +109,9 @@ public class CustomerMenuPage extends JFrame {
                 dispose();
             }
         });
-<<<<<<< HEAD
-=======
 
         purchaseHistoryButton.addActionListener(e -> new CustomerPurchaseHistoryPage(username, this));
 
         editProfileButton.addActionListener(e -> new CustomerEditProfilePage(username, this));
->>>>>>> Matthew
     }
 }
