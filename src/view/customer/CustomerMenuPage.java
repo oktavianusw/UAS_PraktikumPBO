@@ -89,6 +89,14 @@ public class CustomerMenuPage extends JFrame {
             }
         });
 
+        viewProductsButton.addActionListener(e -> {
+            new CustomerViewProductPage(username, this);
+        });
+
+        viewCartButton.addActionListener(e -> {
+            new CustomerViewCartPage(username, this);
+        });
+
         editProfileButton.addActionListener(e -> new CustomerEditProfilePage(username, this));
     }
 }
