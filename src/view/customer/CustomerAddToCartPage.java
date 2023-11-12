@@ -29,13 +29,13 @@ public class CustomerAddToCartPage extends JFrame {
     }
 
     private void placeComponents(JPanel panel) {
-        panel.setLayout(new GridLayout(3, 2));
+        panel.setLayout(new GridLayout(4,1));
 
         JLabel productLabel = new JLabel("Product ID: " + productID);
-        panel.add(productLabel);
+        panel.add(productLabel, BorderLayout.BEFORE_FIRST_LINE);
 
         JLabel quantityLabel = new JLabel("Quantity:");
-        panel.add(quantityLabel);
+        panel.add(quantityLabel, BorderLayout.LINE_START);
 
         JTextField quantityField = new JTextField(10);
         panel.add(quantityField);
@@ -55,6 +55,16 @@ public class CustomerAddToCartPage extends JFrame {
                 }
             }
         });
-        panel.add(addButton);
+        panel.add(addButton, BorderLayout.CENTER);
+
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CustomerMenuPage(username);
+                dispose();
+            }
+        });
+        panel.add(backButton, BorderLayout.PAGE_END);
     }
 }

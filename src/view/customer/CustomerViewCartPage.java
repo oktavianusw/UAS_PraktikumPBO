@@ -1,6 +1,9 @@
 package view.customer;
 
 import javax.swing.*;
+
+import controller.customer.CustomerCheckOutController;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +17,8 @@ import java.util.Vector;
 public class CustomerViewCartPage extends JFrame {
     private JTable productTable;
     private String username;
-
+    private JLabel messageLabel;
+    
     public CustomerViewCartPage(String username, JFrame menu) {
         menu.dispose();
         this.username = username;
@@ -65,6 +69,7 @@ public class CustomerViewCartPage extends JFrame {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            showMessage("Error fetching data from the database.");
         }
 
         productTable = new JTable(data, columnNames);
@@ -76,9 +81,35 @@ public class CustomerViewCartPage extends JFrame {
         checkoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                // Call the checkout method from the controller
+                CustomerCheckOutController checkoutController = new CustomerCheckOutController(
+                        CustomerViewCartPage.this);
+                if (checkoutController.checkout(username)) {
+                    showMessage("Checkout successful!");
+                } else {
+                    showMessage("Checkout failed. Please try again.");
+                }
             }
         });
-        panel.add(checkoutButton, BorderLayout.SOUTH);
+        panel.add(checkoutButton, BorderLayout.LINE_START);
+
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CustomerMenuPage(username);
+                dispose();
+            }
+        });
+        panel.add(backButton, BorderLayout.PAGE_END);
+
+        // Initialize and add the message label
+        messageLabel = new JLabel();
+        panel.add(messageLabel, BorderLayout.EAST);
+    }
+
+    // Method to update the message label
+    public void showMessage(String message) {
+        messageLabel.setText(message);
     }
 }
