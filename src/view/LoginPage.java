@@ -4,6 +4,8 @@ import javax.swing.*;
 import controller.*;
 import view.customer.CustomerMenuPage;
 import view.owner.OwnerMenuPage;
+import view.staffonline.StaffOnlineMenuPage;
+import view.staffonsite.StaffOnsiteMenuPage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -93,15 +95,16 @@ public class LoginPage extends JFrame {
                         // If the user is a customer, open the customer menu page
                         new CustomerMenuPage(username);
                     }
-                    // else if ("StaffOnline".equals(userType)) {
-                    // // If the user is an Online Staff, open the Online Staff menu page
-                    // new CustomerMenuPage(username);
-                    // } else if ("StaffOnsite".equals(userType)) {
-                    // // If the user is an Onsite Staff, open the Onsite Staff menu page
-                    // new CustomerMenuPage(username);
+                    else if ("StaffOnline".equals(userType)) {
+                    // If the user is an Online Staff, open the Online Staff menu page
+                    new StaffOnlineMenuPage(username);
+                    } else if ("StaffOnsite".equals(userType)) {
+                    // If the user is an Onsite Staff, open the Onsite Staff menu page
+                    new StaffOnsiteMenuPage(username);
                     // }
                     // Dispose the current frame
                     dispose();
+                }
                 } else {
                     // If the user is not authenticated, show an error message
                     JOptionPane.showMessageDialog(LoginPage.this, "Invalid username or password.", "Error",
