@@ -91,13 +91,16 @@ public class LoginPage extends JFrame {
                     if ("Owner".equals(userType)) {
                         // If the user is an owner, open the owner menu page
                         new OwnerMenuPage(username);
+                        dispose();
                     } else if ("Customer".equals(userType)) {
                         // If the user is a customer, open the customer menu page
                         new CustomerMenuPage(username);
+                        dispose();
                     }
                     else if ("StaffOnline".equals(userType)) {
                     // If the user is an Online Staff, open the Online Staff menu page
                     new StaffOnlineMenuPage(username);
+                    dispose();
                     } else if ("StaffOnsite".equals(userType)) {
                     // If the user is an Onsite Staff, open the Onsite Staff menu page
                     new StaffOnsiteMenuPage(username);

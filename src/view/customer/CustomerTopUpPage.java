@@ -58,8 +58,8 @@ public class CustomerTopUpPage extends JFrame {
                 } else {
                     try {
                         int amount = Integer.parseInt(input);
-                        if (amount < 20000) {
-                            JOptionPane.showMessageDialog(null, "Minimum top up amount is 20000.");
+                        if (amount < 20) {
+                            JOptionPane.showMessageDialog(null, "Minimum top up amount is 20.");
                         } else {
                             CustomerTopUpController controller = new CustomerTopUpController();
                             controller.topUpWallet(username, amount);
