@@ -51,7 +51,7 @@ public class CustomerCheckOutController {
     public boolean checkWalletAmount(String username){
         CustomerMenuController controller = new CustomerMenuController();
         double balance = controller.getBalance(username);
-        String fetchTotalPriceSQL = "SELECT SUM(p.productPrice * dt.quantity) as total FROM detailtransaction dt JOIN product p ON p.productID = dt.productID JOIN transaction t ON dt.transactionID = t.transactionID WHERE t.userID = ?";
+        String fetchTotalPriceSQL = "SELECT SUM(p.productPrice * c.quantity) as total FROM cart c JOIN product p ON p.productID = c.productID WHERE c.userID = ?";
         String fetchUserID = "SELECT userID FROM user WHERE userName = ?";
         try (PreparedStatement fetchTotalPriceStatement = connection.prepareStatement(fetchTotalPriceSQL);
              PreparedStatement fetchUserIDStatement = connection.prepareStatement(fetchUserID)) {
