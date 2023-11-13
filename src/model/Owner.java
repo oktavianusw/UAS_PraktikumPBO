@@ -7,6 +7,6 @@ public class Owner extends User {
 
     @Override
     public String toString() {
-        return "Owner: uid = " + getUid() + ", password = " + getPassword();
+        return "Owner:\n uid = " + getUid() + ", username = " + getUsername() + ", password = " + getPassword();
     }
 }

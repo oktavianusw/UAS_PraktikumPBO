@@ -2,21 +2,12 @@ package model;
 
 import java.util.Date;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author grego
- */
 public class Transaction {
     private String transactionType;
     private Date transactionDate;
     private int prodID;
     private int transactionID;
-    
+
     public Transaction(String transactionType, Date transactionDate, int prodID, int transactionID) {
         this.transactionType = transactionType;
         this.transactionDate = transactionDate;
@@ -55,6 +46,5 @@ public class Transaction {
     public void setTransactionID(int transactionID) {
         this.transactionID = transactionID;
     }
-    
-    
+
 }
