@@ -56,10 +56,8 @@ public class StaffOnsiteMenuPage extends JFrame {
         });
 
         productCheckButton.addActionListener(e -> {
-            // Add the action for Product Check
-            // You can open a new frame or perform other actions
-            // Example: new ProductCheckPage(username, this);
-            showMessage("Product Check functionality not implemented yet.");
+            new StaffOnsiteProductCheckPage();
+            dispose();
         });
 
         memberManagementButton.addActionListener(e -> {
