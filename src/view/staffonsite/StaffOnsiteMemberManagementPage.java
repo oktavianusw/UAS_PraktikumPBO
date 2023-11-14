@@ -49,7 +49,7 @@ public class StaffOnsiteMemberManagementPage extends JFrame {
         try {
             Connection connection = DriverManager
                     .getConnection("jdbc:mysql://localhost:3306/product_warehouse_management", "root", "");
-            String query = "SELECT * FROM user WHERE role = 'Customer'";
+            String query = "SELECT * FROM user WHERE roleType = 'Customer'";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
