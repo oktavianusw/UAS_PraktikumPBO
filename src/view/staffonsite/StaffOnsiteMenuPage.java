@@ -61,10 +61,8 @@ public class StaffOnsiteMenuPage extends JFrame {
         });
 
         memberManagementButton.addActionListener(e -> {
-            // Add the action for Member Management
-            // You can open a new frame or perform other actions
-            // Example: new MemberManagementPage(username, this);
-            showMessage("Member Management functionality not implemented yet.");
+            new StaffOnsiteMemberManagementPage(username);
+            dispose();
         });
 
         logoutButton.addActionListener(e -> {
