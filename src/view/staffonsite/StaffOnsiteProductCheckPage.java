@@ -16,8 +16,10 @@ import java.util.Vector;
 public class StaffOnsiteProductCheckPage extends JFrame {
     private JTextField productNameOrIdField;
     private JTable warehouseTable;
+    private String username;
 
-    public StaffOnsiteProductCheckPage() {
+    public StaffOnsiteProductCheckPage(String username) {
+        this.username = username;
         setTitle("Onsite Product Check");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,6 +51,15 @@ public class StaffOnsiteProductCheckPage extends JFrame {
 
         warehouseTable = new JTable();
         panel.add(new JScrollPane(warehouseTable), BorderLayout.CENTER);
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new StaffOnsiteMenuPage(username);
+                dispose();
+            }
+        });
+        inputPanel.add(backButton);
     }
 
     private void showWarehouses() {
@@ -60,7 +71,7 @@ public class StaffOnsiteProductCheckPage extends JFrame {
         try {
             Connection connection = DriverManager
                     .getConnection("jdbc:mysql://localhost:3306/product_warehouse_management", "root", "");
-            String query = "SELECT w.warehouseName, quantity, isActive FROM productlist JOIN warehouse w ON w.warehouseID = productlist.warehouseID JOIN product p ON p.productID = productlist.productID WHERE p.productID = ? OR p.productName = ?";
+            String query = "SELECT w.warehouseName, quantity, isActive FROM productlist JOIN warehouse w ON w.warehouseID = productlist.warehouseID JOIN product p ON p.productID = productlist.productID WHERE p.productID = ? OR LOWER(p.productName) = LOWER(?);";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, productNameOrId);
             preparedStatement.setString(2, productNameOrId);

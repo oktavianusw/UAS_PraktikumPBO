@@ -56,7 +56,7 @@ public class StaffOnsiteMenuPage extends JFrame {
         });
 
         productCheckButton.addActionListener(e -> {
-            new StaffOnsiteProductCheckPage();
+            new StaffOnsiteProductCheckPage(username);
             dispose();
         });
 
